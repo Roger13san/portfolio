@@ -1,0 +1,40 @@
+.scroll {
+    position: relative;
+    display: flex;
+    width: 1400px; 
+    overflow: hidden;  
+}
+
+.scrollContent {
+    display: flex;
+    width: 300%; 
+    animation: animate 15s linear infinite;  
+}
+
+.images {
+    display: inline-flex; 
+}
+
+.images img {
+    width: 30px;  
+    height: 30px;
+    display: inline-flex;
+    margin: 10px;
+    padding: 5px 10px;
+    transition: 0.5s;
+}
+
+.scrollContent img:hover {
+    cursor: pointer;
+    filter: invert(27%) sepia(90%) saturate(500%) hue-rotate(120deg);
+}
+
+ 
+@keyframes animate {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-33.33%);  
+    }
+}
