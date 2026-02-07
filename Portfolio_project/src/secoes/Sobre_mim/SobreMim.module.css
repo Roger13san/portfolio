@@ -1,0 +1,37 @@
+.section {
+  width: 100%;
+  padding: 56px 24px 56px 140px; /* respiro igual ao hero */
+}
+hr {
+  border: none;
+  border-top: 1px solid rgba(242, 245, 255, 0.1);
+  margin: 0 0 56px; /* espaço entre a linha e o conteúdo */
+}
+.inner {
+  max-width: 100%; /* mesma largura do hero */
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 34px;
+  margin: 0 0 14px;
+  color: #f2f5ff;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(242, 245, 255, 0.82);
+  margin: 0;
+  max-width: 78ch; /* deixa leitura confortável */
+}
+
+.link {
+  color: #7c4dff;
+  font-weight: 600;
+}
+
+.highlight {
+  color: #22c55e; /* verde bonito */
+  font-weight: 700;
+}

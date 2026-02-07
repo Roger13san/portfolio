@@ -1,0 +1,53 @@
+.actions {
+  display: flex;
+  gap: 18px; /* mais espaçamento */
+  margin-top: 28px;
+}
+
+/* base grande */
+.btn {
+  height: 56px;
+  padding: 0 30px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 14px;
+  letter-spacing: 0.3px;
+
+  transition: all 0.25s ease;
+}
+.primary {
+  background: linear-gradient(135deg, #5b8cff, #7c4dff);
+  color: white;
+
+  box-shadow: 0 12px 32px rgba(124, 77, 255, 0.35);
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(124, 77, 255, 0.45);
+}
+.secondary {
+  background: #1a1f2b;
+  color: white;
+  border: 1px solid #2c3345;
+}
+
+.secondary:hover {
+  background: #232938;
+}
+.ghost {
+  background: transparent;
+  border: 1px solid #2c3345;
+  color: #9aa3b2;
+}
+
+.ghost:hover {
+  color: white;
+  border-color: #4b5568;
+}
