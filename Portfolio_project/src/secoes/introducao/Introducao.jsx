@@ -1,26 +1,32 @@
-import { useState } from 'react'
-import './Introducao.css'
-import monkey from '../../assets/monkito.jpeg'
+import styles from "./Introducao.module.css";
+import HeroButtons from "../HeroButtons/HeroButtons";
 
 function Introducao() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div id="inicio">
-        <div id='pega'>
-            <h2 id='intro'>Roger Rodrigues de Santana <br />
-            Desenvolvedor <a href="">FullStack</a> 
-            </h2>
-            <p id='z'> Profissional desde 2024</p>
+    <section className={styles.hero} id="inicio">
+      <div className={styles.inner}>
+        <div className={styles.left}>
+          <h1 className={styles.title}>
+            Roger Rodrigues de Santana <br />
+            Desenvolvedor <span className={styles.highlight}>FullStack</span>
+          </h1>
+
+          <p className={styles.sub}>Profissional desde 2024</p>
+
+          <p className={styles.desc}>
+            Desenvolvedor especializado em back-end e APIs escaláveis. <br />
+            2 anos de experiência profissional em produção.
+          </p>
+
+          <HeroButtons />
         </div>
-        
-        
-        <img src={monkey} alt="as" />
-    </div>
-      
-    </>
-  )
+
+        <div className={styles.right}>
+          <div className={styles.photo} aria-label="Foto do Roger" role="img" />
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Introducao
+export default Introducao;
