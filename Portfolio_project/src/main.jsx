@@ -4,13 +4,14 @@ import './index.css'
 import Introducao from './secoes/introducao/introducao'
 import Sobre_mim from './secoes/Sobre_mim/SobreMim'
 import Scroll from './secoes/Scroll/Scroll'
+import Projetos from './secoes/Projetos/Projetos.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Introducao/>
     <Sobre_mim/>
-    
     <Scroll/>
+    <Projetos/>
   </StrictMode>,
 )
