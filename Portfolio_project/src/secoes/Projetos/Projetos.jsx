@@ -1,49 +1,39 @@
 import { useEffect, useRef, useState } from "react";
+import { ExternalLink, Github, X } from "lucide-react";
 import styles from "./Projetos.module.css";
+
 import idea_plataform from "../../assets/idea_plataform.jpeg";
 
 const projetos = [
   {
     image: idea_plataform,
     title: "Plataforma de Ideias (React)",
-    desc: "Plataforma para submissão e votação de ideias, com autenticação e tokens de validação UI moderna e responsiva.",
+    desc: "Plataforma para submissão e votação de ideias, com autenticação e tokens de validação. UI moderna e responsiva.",
     stack: ["React", "Express", "MongoDB", "JWT", "CSRF"],
     highlights: ["Arquitetura em camadas", "Validações e middleware", "Pronto pra produção"],
-    links: {
-      repo: "https://github.com/seu-user/seu-repo",
-      demo: "https://seu-deploy.com",
-    },
+    links: { repo: "https://github.com/seu-user/seu-repo", demo: "https://seu-deploy.com" },
     featured: true,
   },
   {
-    title: "Painel Admin (React)",
-    desc: "Dashboard com autenticação, listagem, filtros e paginação. UI consistente e responsiva.",
+    title: "E-commerce UI (React)",
+    desc: "Interface de e-commerce com layout moderno, grid de produtos, página de detalhes e carrinho (UI).",
     stack: ["React", "Vite", "CSS Modules"],
-    highlights: ["UI responsiva", "Componentização", "Acessível e leve"],
-    links: {
-      repo: "https://github.com/seu-user/seu-repo",
-      demo: "https://seu-deploy.com",
-    },
+    highlights: ["UI responsiva", "Componentização", "Boa organização"],
+    links: { repo: "https://github.com/seu-user/seu-repo", demo: "" },
   },
   {
     title: "Pipeline CI/CD (GitHub Actions)",
     desc: "Build + testes + lint + deploy automatizado. Reduz retrabalho e garante padrão de qualidade.",
     stack: ["GitHub Actions", "Docker", "Linux"],
     highlights: ["Deploy automático", "Checks de qualidade", "Padronização"],
-    links: {
-      repo: "https://github.com/seu-user/seu-repo",
-      demo: "",
-    },
+    links: { repo: "https://github.com/seu-user/seu-repo", demo: "" },
   },
   {
     title: "Automação de Testes (QA)",
     desc: "Suite de testes automatizados para fluxos críticos, com relatórios e execução em pipeline.",
     stack: ["Playwright", "JavaScript", "CI/CD"],
     highlights: ["Testes E2E", "Relatórios", "Rodando em pipeline"],
-    links: {
-      repo: "https://github.com/seu-user/seu-repo",
-      demo: "",
-    },
+    links: { repo: "https://github.com/seu-user/seu-repo", demo: "" },
   },
 ];
 
@@ -58,26 +48,26 @@ function Modal({ project, onClose }) {
 
   useEffect(() => {
     previousActive.current = document.activeElement;
-    const timer = setTimeout(() => {
+    const t = setTimeout(() => {
       if (!dialogRef.current) return;
       const focusable = dialogRef.current.querySelector(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, a[href], [tabindex]:not([tabindex="-1"])'
       );
       if (focusable) focusable.focus();
-    }, 20);
+    }, 10);
 
     function onKey(e) {
       if (e.key === "Escape") onClose();
+
       if (e.key === "Tab") {
         const focusables = dialogRef.current.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          'button, a[href], [tabindex]:not([tabindex="-1"])'
         );
-        if (focusables.length === 0) {
-          e.preventDefault();
-          return;
-        }
+        if (!focusables.length) return;
+
         const first = focusables[0];
         const last = focusables[focusables.length - 1];
+
         if (!e.shiftKey && document.activeElement === last) {
           e.preventDefault();
           first.focus();
@@ -93,7 +83,7 @@ function Modal({ project, onClose }) {
     document.body.style.overflow = "hidden";
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(t);
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
       if (previousActive.current) previousActive.current.focus();
@@ -105,29 +95,21 @@ function Modal({ project, onClose }) {
   }
 
   return (
-    <div
-      className={styles.modalBackdrop}
-      ref={overlayRef}
-      onClick={onBackdropClick}
-      aria-hidden={false}
-    >
+    <div ref={overlayRef} className={styles.modalBackdrop} onClick={onBackdropClick}>
       <div
+        ref={dialogRef}
         className={styles.modal}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
-        ref={dialogRef}
       >
         <header className={styles.modalHeader}>
-          <h3 id="modal-title" className={styles.cardTitle}>
+          <h3 id="modal-title" className={styles.modalTitle}>
             {project.title}
           </h3>
-          <button
-            className={styles.modalClose}
-            aria-label="Fechar"
-            onClick={onClose}
-          >
-            ×
+
+          <button className={styles.modalClose} onClick={onClose} aria-label="Fechar">
+            <X size={18} />
           </button>
         </header>
 
@@ -140,19 +122,19 @@ function Modal({ project, onClose }) {
           />
         )}
 
-        <div className={styles.modalContent}>
-          <p className={styles.cardDesc}>{project.desc}</p>
+        <div className={styles.modalBody}>
+          <p className={styles.modalDesc}>{project.desc}</p>
 
           <div className={styles.modalSection}>
             <h4>Stack</h4>
-            <div className={styles.stack}>
+            <div className={styles.stackRow}>
               {project.stack.map((s) => (
                 <Tag key={s}>{s}</Tag>
               ))}
             </div>
           </div>
 
-          {project.highlights && (
+          {!!project.highlights?.length && (
             <div className={styles.modalSection}>
               <h4>Highlights</h4>
               <ul className={styles.highlights}>
@@ -164,35 +146,16 @@ function Modal({ project, onClose }) {
           )}
 
           <div className={styles.actions}>
-            <a
-              className={styles.btnPrimary}
-              href={project.links.repo}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className={styles.icon} aria-hidden="true">
-                ⌂
-              </span>
-              Repo
+            <a className={styles.btnPrimary} href={project.links.repo} target="_blank" rel="noreferrer">
+              <Github size={16} /> Repo
             </a>
 
             {project.links.demo ? (
-              <a
-                className={styles.btnGhost}
-                href={project.links.demo}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span className={styles.icon} aria-hidden="true">
-                  ↗
-                </span>
-                Demo
+              <a className={styles.btnGhost} href={project.links.demo} target="_blank" rel="noreferrer">
+                <ExternalLink size={16} /> Demo
               </a>
             ) : (
               <button className={styles.btnDisabled} disabled>
-                <span className={styles.icon} aria-hidden="true">
-                  —
-                </span>
                 Sem demo
               </button>
             )}
@@ -203,20 +166,33 @@ function Modal({ project, onClose }) {
   );
 }
 
-function Projetos() {
+export default function Projetos() {
   const [selected, setSelected] = useState(null);
 
-  function open(project) {
-    setSelected(project);
-  }
+  // ✅ mesma lógica do SobreMim
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
-  function close() {
-    setSelected(null);
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className={styles.section} id="projetos">
-      <div className={styles.inner}>
+      <div
+        ref={sectionRef}
+        className={`${styles.inner} ${visible ? styles.visible : styles.hidden}`}
+      >
+        <div className={styles.divider} />
+
         <div className={styles.header}>
           <div>
             <h2 className={styles.title}>Projetos</h2>
@@ -225,7 +201,7 @@ function Projetos() {
 
           <a
             className={styles.allProjects}
-            href="https://github.com/seu-user"
+            href="https://github.com/Roger13san"
             target="_blank"
             rel="noreferrer"
           >
@@ -234,15 +210,18 @@ function Projetos() {
         </div>
 
         <div className={styles.grid}>
-          {projetos.map((p) => (
+          {projetos.map((p, i) => (
             <article
               key={p.title}
-              className={`${styles.card} ${p.featured ? styles.featured : ""}`}
-              onClick={() => open(p)}
+              className={`${styles.card} ${visible ? styles.cardIn : styles.cardOut} ${
+                p.featured ? styles.featured : ""
+              }`}
+              style={{ transitionDelay: `${i * 120}ms` }}   // ✅ stagger
+              onClick={() => setSelected(p)}
               tabIndex={0}
               role="button"
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") open(p);
+                if (e.key === "Enter" || e.key === " ") setSelected(p);
               }}
             >
               {p.image && (
@@ -263,49 +242,14 @@ function Projetos() {
                 <h3 className={styles.cardTitle}>{p.title}</h3>
                 <p className={styles.cardDesc}>{p.desc}</p>
               </div>
-{/* 
-              <div className={styles.actions}>
-                <a
-                  className={styles.btnPrimary}
-                  href={p.links.repo}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className={styles.icon} aria-hidden="true">
-                    ⌂
-                  </span>
-                  Repo
-                </a>
 
-                {p.links.demo ? (
-                  <a
-                    className={styles.btnGhost}
-                    href={p.links.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span className={styles.icon} aria-hidden="true">
-                      ↗
-                    </span>
-                    Demo
-                  </a>
-                ) : (
-                  <button className={styles.btnDisabled} disabled>
-                    <span className={styles.icon} aria-hidden="true">
-                      —
-                    </span>
-                    Sem demo
-                  </button>
-                )}
-              </div> */}
+              <div className={styles.cardHint}>Clique para ver detalhes</div>
             </article>
           ))}
         </div>
 
-        {selected && <Modal project={selected} onClose={close} />}
+        {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
       </div>
     </section>
   );
 }
-
-export default Projetos;
