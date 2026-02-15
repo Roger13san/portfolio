@@ -1,40 +1,74 @@
 .scroll {
-    position: relative;
-    display: flex;
-    width: 1400px; 
-    overflow: hidden;  
+  width: 100%;
+  overflow: hidden;
+  padding: 30px 0;
+  position: relative;
+
+}
+
+/* fade nas laterais */
+.scroll::before,
+.scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scroll::before {
+  left: 0;
+  background: linear-gradient(to right, #05020F, transparent);
+}
+
+.scroll::after {
+  right: 0;
+  background: linear-gradient(to left, #05020F, transparent);
 }
 
 .scrollContent {
-    display: flex;
-    width: 300%; 
-    animation: animate 15s linear infinite;  
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
 }
 
 .images {
-    display: inline-flex; 
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 0 40px;
 }
 
 .images img {
-    width: 30px;  
-    height: 30px;
-    display: inline-flex;
-    margin: 10px;
-    padding: 5px 10px;
-    transition: 0.5s;
+  height: 42px;
+  opacity: 0.7;
+  transition: all 0.25s ease;
 }
 
-.scrollContent img:hover {
-    cursor: pointer;
-    filter: invert(27%) sepia(90%) saturate(500%) hue-rotate(120deg);
+.images img:hover {
+  opacity: 1;
+  transform: scale(1.08);
 }
 
- 
-@keyframes animate {
-    0% {
-        transform: translateX(0); 
-    }
-    100% {
-        transform: translateX(-33.33%);  
-    }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .images {
+    gap: 40px;
+  }
+
+  .images img {
+    height: 34px;
+  }
+
+  .scroll::before,
+  .scroll::after {
+    width: 60px;
+  }
 }
