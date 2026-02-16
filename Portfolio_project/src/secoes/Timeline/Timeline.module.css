@@ -20,19 +20,17 @@
   color: #f2f5ff;
 }
 
-/* 🔥 Timeline com variáveis (dot e linha sempre alinhados) */
 .timeline {
   position: relative;
 
-  --col: 64px;       /* largura da coluna do dot */
-  --dot: 44px;       /* tamanho do dot */
-  --line: 2px;       /* espessura da linha */
+  --col: 64px;       
+  --dot: 44px;        
+  --line: 2px;        
   --gap: 22px;
 
   padding-left: 0;
 }
 
-/* linha vertical sempre no centro da coluna do dot */
 .timeline::before {
   content: "";
   position: absolute;
@@ -64,8 +62,9 @@
   transition: opacity 600ms ease, transform 600ms ease;
 }
 
-/* dot centralizado (bate com a linha) */
+
 .dot {
+  position: relative;  
   width: var(--dot);
   height: var(--dot);
   border-radius: 999px;
@@ -73,18 +72,33 @@
   display: grid;
   place-items: center;
 
-  justify-self: center; /* ✅ chave do alinhamento */
+  justify-self: center;
   margin-top: 2px;
-
   background: rgba(139, 92, 246, 0.18);
-  border: 1px solid rgba(139, 92, 246, 0.55);
+  border: 9.5px solid rgba(139, 92, 246, 0.55);
 
   box-shadow:
     0 0 22px rgba(139, 92, 246, 0.28),
     0 10px 25px rgba(0, 0, 0, 0.35);
 
-  z-index: 1;
+  z-index: 2;  
   font-size: 18px;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: calc(var(--dot) + 16px);
+  height: calc(var(--dot) + 16px);
+  border-radius: 999px;
+
+  background: #060813;
+
+  z-index: -1;  
 }
 
 .content { padding-top: 2px; }
@@ -121,7 +135,7 @@
   max-width: 72ch;
 }
 
-/* animação */
+ 
 .hidden {
   opacity: 0;
   transform: translateY(40px);
@@ -143,7 +157,7 @@
   transform: translateY(0);
 }
 
-/* responsivo */
+ 
 @media (max-width: 700px) {
   .heading {
     font-size: 30px;
