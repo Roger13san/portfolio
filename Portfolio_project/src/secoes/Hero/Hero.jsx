@@ -15,7 +15,6 @@ export default function Hero() {
 
       <div className={styles.inner}>
         <div className={styles.content}>
-          {/* TEXT */}
           <div className={styles.text}>
             <h1 className={styles.title}>
               Roger Rodrigues de Santana
@@ -65,7 +64,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* AVATAR */}
           <div className={styles.avatarWrapper}>
             <div className={styles.avatar}>
               <img

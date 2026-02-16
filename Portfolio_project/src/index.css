@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
 
 :root {
-  /* ===== Tokens básicos (pra evitar var() quebrada) ===== */
   --bg: #060813;
   --fg: rgba(242, 245, 255, 0.92);
   --muted: rgba(242, 245, 255, 0.72);
   --border: rgba(255, 255, 255, 0.10);
   --radius: 16px;
 
-  /* ===== Font tokens ===== */
   --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
 
@@ -17,12 +15,12 @@
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   min-height: 100%;
 }
 
-/* ✅ aqui é onde muda MUITO a aparência da fonte */
 html {
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +32,6 @@ body {
   color: var(--fg);
   font-family: var(--font-sans);
 
-  /* ✅ não usar display:flex no body */
   display: block;
 }
 
@@ -49,19 +46,16 @@ body::before {
   z-index: -1;
 }
 
-/* títulos */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   margin: 0;
 }
 
-/* texto */
 p {
   margin: 0;
   color: var(--fg);
 }
 
-/* Links padrão */
 a {
   color: inherit;
   text-decoration: none;
@@ -71,18 +65,15 @@ a:hover {
   color: rgba(242, 245, 255, 0.98);
 }
 
-/* Imagens responsivas */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Root */
 #root {
   min-height: 100%;
 }
 
-/* Utilitário: glass (igual vibe lovable) */
 .glass-card {
   background: rgba(12, 14, 32, 0.55);
   border: 1px solid var(--border);

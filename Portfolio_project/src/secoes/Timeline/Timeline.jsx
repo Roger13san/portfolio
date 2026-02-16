@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Timeline.module.css";
-
+import { Briefcase, GraduationCap } from "lucide-react";
 const items = [
   {
     category: "Experiência Profissional",
@@ -8,7 +8,7 @@ const items = [
     title: "Backend & QA",
     description:
       "Atuação como Backend e QA, trabalhando com desenvolvimento e manutenção de APIs em produção, correção de bugs, melhorias de performance e validações. Experiência com testes manuais e automatizados, análise de falhas e garantia de qualidade em ambientes reais. Contato com banco de dados, versionamento e fluxo de deploy.",
-    dot: "💼",
+    dot: <Briefcase className={styles.icon} />,
   },
   {
     category: "Educação",
@@ -16,7 +16,7 @@ const items = [
     title: "Ensino Médio Técnico em Desenvolvimento de Sistemas",
     description:
       "Instituto Germinare — Conclusão 2025. Formação com foco em lógica de programação, estrutura de dados, banco de dados, desenvolvimento web e fundamentos de engenharia de software.",
-    dot: "🎓",
+    dot: <GraduationCap className={styles.icon} />,
   },
 ];
 

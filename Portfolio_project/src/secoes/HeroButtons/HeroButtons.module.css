@@ -1,10 +1,9 @@
 .actions {
   display: flex;
-  gap: 18px; /* mais espaçamento */
+  gap: 18px;  
   margin-top: 28px;
 }
 
-/* base grande */
 .btn {
   height: 56px;
   padding: 0 30px;
