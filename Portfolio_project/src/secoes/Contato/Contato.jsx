@@ -35,8 +35,8 @@ export default function Contato() {
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+55 (11) 99999-9999",
-      href: "https://wa.me/5511999999999",
+      value: "+55 (11) 94865-9917",
+      href: "https://wa.me/5511948659917",
       color: "#25d366",
     },
     {

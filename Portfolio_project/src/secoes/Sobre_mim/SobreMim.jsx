@@ -32,28 +32,33 @@ export default function SobreMim() {
 
         <h3 className={styles.heading}>Sobre mim</h3>
 
-        <p className={styles.text}>
-          Olá! Meu nome é{" "}
-          <span className={styles.highlight}>Roger Rodrigues de Santana</span>,
-          sou desenvolvedor{" "}
-          <span className={styles.highlight}>Full Stack</span> com foco em{" "}
-          <span className={styles.highlight}>back-end</span>.
-          <br /><br />
-          Me formei em{" "}
-          <span className={styles.highlight}>
-            Desenvolvimento de Sistemas
-          </span>{" "}
-          pelo Instituto Germinare (2023–2025) e atuo na área desde 2024.
-          Tenho experiência em construção de{" "}
-          <span className={styles.bold}>APIs</span>, DevOps, pipelines CI/CD,
-          implantação de aplicações e gerenciamento de bancos de dados.
-          <br /><br />
-          Também desenvolvo interfaces responsivas e funcionais no front-end,
-          entregando soluções completas e eficientes.
-          <br /><br />
-          Sou apaixonado por tecnologia, aprendizado contínuo e desafios que
-          me façam evoluir como profissional.
-        </p> <br /><br /><br />
+    <p className={styles.text}>
+      Olá! Meu nome é{" "}
+      <span className={styles.highlight}>Roger Rodrigues de Santana</span>, sou
+      desenvolvedor{" "}
+      <span className={styles.highlight}>Full Stack</span> com foco em{" "}
+      <span className={styles.highlight}>back-end</span>.
+      <br /><br />
+      Sou formado em{" "}
+      <span className={styles.highlight}>Desenvolvimento de Sistemas</span> pelo
+      Instituto Germinare (2023–2025) e atuo profissionalmente na área desde 2024.
+      Tenho experiência no desenvolvimento e manutenção de{" "}
+      <span className={styles.bold}>APIs</span>, além de práticas de{" "}
+      <span className={styles.bold}>DevOps</span>,{" "}
+      <span className={styles.bold}>pipelines CI/CD</span>, implantação de
+      aplicações e gerenciamento de bancos de dados.
+      <br /><br />
+      Também possuo experiência no desenvolvimento de interfaces responsivas e
+      funcionais no front-end, buscando sempre entregar soluções completas, bem
+      estruturadas e eficientes.
+      <br /><br />
+      Sou movido por tecnologia, aprendizado contínuo e desafios que contribuam
+      para minha evolução profissional.
+    </p>
+
+
+<br /><br /><br />
+
       </div>
     </section>
   );

@@ -371,3 +371,18 @@
 .card {
   transition: transform 220ms ease, border-color 220ms ease, opacity 600ms ease, transform 600ms ease;
 }
+.modalMedia {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.modalVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 420px;
+  object-fit: contain; 
+  background: rgba(0, 0, 0, 0.25);
+}

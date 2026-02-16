@@ -3,6 +3,9 @@ import { ExternalLink, Github, X } from "lucide-react";
 import styles from "./Projetos.module.css";
 
 import idea_plataform from "../../assets/idea_plataform.jpeg";
+import ecommerce_ui from "../../assets/ecommerce_ui.jpeg";
+import ecommerce_ui_video from "../../assets/ecommerce_ui.mp4";
+
 
 const projetos = [
   {
@@ -11,15 +14,17 @@ const projetos = [
     desc: "Plataforma para submissão e votação de ideias, com autenticação e tokens de validação. UI moderna e responsiva.",
     stack: ["React", "Express", "MongoDB", "JWT", "CSRF"],
     highlights: ["Arquitetura em camadas", "Validações e middleware", "Pronto pra produção"],
-    links: { repo: "https://github.com/seu-user/seu-repo", demo: "https://seu-deploy.com" },
+    links: { repo: "https://github.com/ProjetoProgamacaoAssinc/Ideas-Platform", demo: "" },
     featured: true,
   },
   {
     title: "E-commerce UI (React)",
     desc: "Interface de e-commerce com layout moderno, grid de produtos, página de detalhes e carrinho (UI).",
-    stack: ["React", "Vite", "CSS Modules"],
+    stack: ["React", "Vite", "CSS Modules","Postgres"],
     highlights: ["UI responsiva", "Componentização", "Boa organização"],
-    links: { repo: "https://github.com/seu-user/seu-repo", demo: "" },
+    links: { repo: "https://github.com/juanraujo/RunnStore", demo: "" },
+    thumb: ecommerce_ui,     // aparece no grid
+    video: ecommerce_ui_video,   
   },
   {
     title: "Pipeline CI/CD (GitHub Actions)",
@@ -113,14 +118,26 @@ function Modal({ project, onClose }) {
           </button>
         </header>
 
-        {project.image && (
-          <div
-            className={styles.modalImage}
-            style={{ backgroundImage: `url(${project.image})` }}
-            role="img"
-            aria-label={project.title}
-          />
-        )}
+        {project.video ? (
+            <div className={styles.modalMedia}>
+              <video
+                className={styles.modalVideo}
+                src={project.video}
+                autoPlay
+                controls
+                playsInline
+                muted
+              />
+            </div>
+          ) : project.image ? (
+            <div
+              className={styles.modalImage}
+              style={{ backgroundImage: `url(${project.image})` }}
+              role="img"
+              aria-label={project.title}
+            />
+          ) : null}
+
 
         <div className={styles.modalBody}>
           <p className={styles.modalDesc}>{project.desc}</p>
@@ -224,13 +241,14 @@ export default function Projetos() {
                 if (e.key === "Enter" || e.key === " ") setSelected(p);
               }}
             >
-              {p.image && (
-                <div
-                  className={styles.cardImage}
-                  style={{ backgroundImage: `url(${p.image})` }}
-                  aria-label={p.title}
-                />
-              )}
+              {(p.thumb || p.image) && (
+                  <div
+                    className={styles.cardImage}
+                    style={{ backgroundImage: `url(${p.thumb || p.image})` }}
+                    aria-label={p.title}
+                  />
+                )}
+
 
               <div className={styles.stack}>
                 {p.stack.map((s) => (
