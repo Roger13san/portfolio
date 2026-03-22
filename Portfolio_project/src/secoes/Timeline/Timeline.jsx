@@ -18,6 +18,14 @@ const items = [
       "Instituto Germinare — Conclusão 2025. Formação com foco em lógica de programação, estrutura de dados, banco de dados, desenvolvimento web e fundamentos de engenharia de software.",
     dot: <GraduationCap className={styles.icon} />,
   },
+  {
+    category: "Educação",
+    period: "Janeiro/2026 – Julho/2028",
+    title: "Graduação em Defesa Cibernética / Cyber Security",
+    description:
+      "Impacta Tecnologia — Conclusão prevista em julho de 2028. Formação focada em segurança da informação, proteção contra ameaças cibernéticas, análise de vulnerabilidades e implementação de soluções de defesa.",
+    dot: <GraduationCap className={styles.icon} />,
+  },
 ];
 
 export default function Timeline() {
