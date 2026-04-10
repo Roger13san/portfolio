@@ -1,9 +1,56 @@
 import { Linkedin, Github, FileDown } from "lucide-react";
+import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 import heroBg from "../../assets/hero-bg.jpg";
 import rogerAvatar from "../../assets/bonito.jpg";
 
+const ROLES = ["FullStack", "Backend Dev", "QA Engineer", "Go Developer"];
+
+const TYPING_SPEED = 80;
+const DELETING_SPEED = 50;
+const PAUSE_AFTER_TYPE = 1800;
+const PAUSE_AFTER_DELETE = 400;
+
+function useTypingEffect(words) {
+  const [displayed, setDisplayed] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[wordIndex];
+
+    let timeout;
+
+    if (!isDeleting && displayed === current) {
+      // palavra completa — pausa antes de apagar
+      timeout = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE);
+    } else if (isDeleting && displayed === "") {
+      // apagou tudo — passa pra próxima palavra
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setWordIndex((i) => (i + 1) % words.length);
+      }, PAUSE_AFTER_DELETE);
+    } else if (isDeleting) {
+      timeout = setTimeout(
+        () => setDisplayed((d) => d.slice(0, -1)),
+        DELETING_SPEED
+      );
+    } else {
+      timeout = setTimeout(
+        () => setDisplayed((d) => current.slice(0, d.length + 1)),
+        TYPING_SPEED
+      );
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, wordIndex, words]);
+
+  return displayed;
+}
+
 export default function Hero() {
+  const typedRole = useTypingEffect(ROLES);
+
   return (
     <section
       id="inicio"
@@ -20,7 +67,10 @@ export default function Hero() {
               Roger Rodrigues de Santana
               <br />
               Desenvolvedor{" "}
-              <span className={styles.highlight}>FullStack</span>
+              <span className={styles.highlight}>
+                {typedRole}
+                <span className={styles.cursor}>|</span>
+              </span>
             </h1>
 
             <p className={styles.sub}>

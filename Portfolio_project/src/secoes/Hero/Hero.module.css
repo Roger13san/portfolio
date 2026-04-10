@@ -64,6 +64,20 @@
 
 .highlight {
   color: #7c4dff;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #7c4dff;
+  font-weight: 300;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 .sub {
@@ -141,6 +155,7 @@
   overflow: hidden;
   border: 4px solid rgba(124, 77, 255, 0.3);
   box-shadow: 0 0 60px rgba(124, 77, 255, 0.25);
+  margin-left: 80px;
 }
 
 .avatar img {

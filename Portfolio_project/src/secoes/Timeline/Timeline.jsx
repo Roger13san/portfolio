@@ -5,28 +5,46 @@ import { Briefcase, GraduationCap } from "lucide-react";
 const items = [
   {
     category: "Experiência Profissional",
-    period: "2024 – Atual",
-    title: "Backend & QA",
+    period: "2026 – Atual",
+    title: "IT Analyst — PicPay",
     description:
-      "Atuação como Backend e QA, trabalhando com desenvolvimento e manutenção de APIs em produção, correção de bugs, melhorias de performance e validações. Experiência com testes manuais e automatizados, análise de falhas e garantia de qualidade em ambientes reais. Contato com banco de dados, versionamento e fluxo de deploy.",
+      "Execução de testes manuais e automatizados para validação de sistemas. Automação de testes com Cypress, testes de APIs REST e integração entre serviços. Identificação e documentação de bugs, colaborando com times de desenvolvimento para melhoria contínua da qualidade do software.",
+    dot: <Briefcase className={styles.icon} />,
+    type: "profissional",
+  },
+  {
+    category: "Experiência Profissional",
+    period: "2025 – 2026",
+    title: "Assistant IT — PicPay",
+    description:
+      "Desenvolvimento e manutenção de serviços backend com Golang e PHP. Implementação de novas funcionalidades em sistemas internos, integração com bancos de dados SQL e NoSQL e desenvolvimento de funcionalidades para sistema de mensageria.",
+    dot: <Briefcase className={styles.icon} />,
+    type: "profissional",
+  },
+  {
+    category: "Experiência Profissional",
+    period: "2024 – 2025",
+    title: "Junior Programmer — PicPay",
+    description:
+      "Desenvolvimento backend com Golang e PHP. Implementação de funcionalidades para sistemas internos e manutenção de aplicações existentes em ambiente de produção.",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },
   {
     category: "Educação",
-    period: "2023 – 2025",
-    title: "Ensino Médio Técnico em Desenvolvimento de Sistemas",
+    period: "2026 – 2028",
+    title: "Cibersegurança — Faculdade Impacta Tecnologia",
     description:
-      "Instituto Germinare — Conclusão 2025. Formação com foco em lógica de programação, estrutura de dados, banco de dados, desenvolvimento web e fundamentos de engenharia de software.",
+      "Graduação em andamento com foco em segurança da informação, proteção contra ameaças cibernéticas, análise de vulnerabilidades e implementação de soluções de defesa. Conclusão prevista em 2028.",
     dot: <GraduationCap className={styles.icon} />,
     type: "educacao",
   },
   {
     category: "Educação",
-    period: "Janeiro/2026 – Julho/2028",
-    title: "Graduação em Defesa Cibernética / Cyber Security",
+    period: "2023 – 2025",
+    title: "Téc. Desenvolvimento de Sistemas — Instituto J&F",
     description:
-      "Impacta Tecnologia — Conclusão prevista em julho de 2028. Formação focada em segurança da informação, proteção contra ameaças cibernéticas, análise de vulnerabilidades e implementação de soluções de defesa.",
+      "Ensino Médio Técnico concluído com foco em lógica de programação, estrutura de dados, banco de dados, desenvolvimento web e fundamentos de engenharia de software.",
     dot: <GraduationCap className={styles.icon} />,
     type: "educacao",
   },
