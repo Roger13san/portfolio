@@ -100,7 +100,7 @@ export default function Contato() {
             Estou sempre aberto a novas oportunidades, parcerias e conversas sobre tecnologia.
           </p>
           <a
-            href="mailto:roger.dev2024@gmail.com"
+            href="mailto:roger.rodriguessantana22@gmail.com"
             className={styles.mailButton}
           >
             Enviar Email

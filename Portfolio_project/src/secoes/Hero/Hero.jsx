@@ -55,7 +55,8 @@ export default function Hero() {
               </a>
 
               <a
-                href="#"
+                href="/cv/roger-santana-cv.pdf"
+                download
                 className={`${styles.btn} ${styles.ghost}`}
               >
                 <FileDown size={22} />

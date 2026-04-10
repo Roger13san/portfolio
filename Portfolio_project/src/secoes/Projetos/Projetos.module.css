@@ -378,6 +378,18 @@
   background: rgba(0, 0, 0, 0.25);
 }
 
+.underConstruction {
+  border-style: dashed;
+  border-color: rgba(124, 77, 255, 0.20);
+  cursor: default;
+  opacity: 0.65;
+}
+
+.underConstruction:hover {
+  transform: none;
+  border-color: rgba(124, 77, 255, 0.20);
+}
+
 .modalVideo {
   width: 100%;
   height: auto;

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Timeline.module.css";
 import { Briefcase, GraduationCap } from "lucide-react";
+
 const items = [
   {
     category: "Experiência Profissional",
@@ -9,6 +10,7 @@ const items = [
     description:
       "Atuação como Backend e QA, trabalhando com desenvolvimento e manutenção de APIs em produção, correção de bugs, melhorias de performance e validações. Experiência com testes manuais e automatizados, análise de falhas e garantia de qualidade em ambientes reais. Contato com banco de dados, versionamento e fluxo de deploy.",
     dot: <Briefcase className={styles.icon} />,
+    type: "profissional",
   },
   {
     category: "Educação",
@@ -17,6 +19,7 @@ const items = [
     description:
       "Instituto Germinare — Conclusão 2025. Formação com foco em lógica de programação, estrutura de dados, banco de dados, desenvolvimento web e fundamentos de engenharia de software.",
     dot: <GraduationCap className={styles.icon} />,
+    type: "educacao",
   },
   {
     category: "Educação",
@@ -25,12 +28,20 @@ const items = [
     description:
       "Impacta Tecnologia — Conclusão prevista em julho de 2028. Formação focada em segurança da informação, proteção contra ameaças cibernéticas, análise de vulnerabilidades e implementação de soluções de defesa.",
     dot: <GraduationCap className={styles.icon} />,
+    type: "educacao",
   },
+];
+
+const FILTERS = [
+  { label: "Todos", value: "todos" },
+  { label: "💼 Profissional", value: "profissional" },
+  { label: "🎓 Educação", value: "educacao" },
 ];
 
 export default function Timeline() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("todos");
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -41,6 +52,10 @@ export default function Timeline() {
     return () => io.disconnect();
   }, []);
 
+  const filtered = activeFilter === "todos"
+    ? items
+    : items.filter((item) => item.type === activeFilter);
+
   return (
     <section className={styles.section} id="timeline">
       <div
@@ -50,9 +65,21 @@ export default function Timeline() {
         <div className={styles.divider} />
         <h2 className={styles.heading}>Trajetória</h2>
 
+        <div className={styles.filters}>
+          {FILTERS.map((f) => (
+            <button
+              key={f.value}
+              className={`${styles.filterBtn} ${activeFilter === f.value ? styles.filterActive : ""}`}
+              onClick={() => setActiveFilter(f.value)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
         <div className={styles.timeline}>
           <div className={styles.items}>
-            {items.map((item, i) => (
+            {filtered.map((item, i) => (
               <article
                 key={item.title}
                 className={`${styles.item} ${visible ? styles.itemIn : styles.itemOut}`}

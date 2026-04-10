@@ -20,6 +20,37 @@
   color: #f2f5ff;
 }
 
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(242, 245, 255, 0.70);
+  transition: all 200ms ease;
+}
+
+.filterBtn:hover {
+  border-color: rgba(139, 92, 246, 0.40);
+  color: rgba(242, 245, 255, 0.95);
+}
+
+.filterActive {
+  background: rgba(139, 92, 246, 0.18);
+  border-color: rgba(139, 92, 246, 0.55);
+  color: #f2f5ff;
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.15);
+}
+
 .timeline {
   position: relative;
 
