@@ -27,18 +27,12 @@ const projetos = [
     video: ecommerce_ui_video,   
   },
   {
-    title: "Pipeline CI/CD (GitHub Actions)",
-    desc: "Build + testes + lint + deploy automatizado. Reduz retrabalho e garante padrão de qualidade.",
-    stack: ["GitHub Actions", "Docker", "Linux"],
-    highlights: ["Deploy automático", "Checks de qualidade", "Padronização"],
-    links: { repo: "https://github.com/seu-user/seu-repo", demo: "" },
-  },
-  {
-    title: "Automação de Testes (QA)",
-    desc: "Suite de testes automatizados para fluxos críticos, com relatórios e execução em pipeline.",
-    stack: ["Playwright", "JavaScript", "CI/CD"],
-    highlights: ["Testes E2E", "Relatórios", "Rodando em pipeline"],
-    links: { repo: "https://github.com/seu-user/seu-repo", demo: "" },
+    title: "🚧 Em obras...",
+    desc: "Novo projeto chegando em breve. Spoiler: vai ter Go, uma API externa de verdade e provavelmente muito café envolvido.",
+    stack: ["🔜 Em breve"],
+    highlights: [],
+    links: { repo: "", demo: "" },
+    underConstruction: true,
   },
 ];
 
@@ -232,13 +226,13 @@ export default function Projetos() {
               key={p.title}
               className={`${styles.card} ${visible ? styles.cardIn : styles.cardOut} ${
                 p.featured ? styles.featured : ""
-              }`}
-              style={{ transitionDelay: `${i * 120}ms` }}   // ✅ stagger
-              onClick={() => setSelected(p)}
-              tabIndex={0}
-              role="button"
+              } ${p.underConstruction ? styles.underConstruction : ""}`}
+              style={{ transitionDelay: `${i * 120}ms` }}
+              onClick={() => !p.underConstruction && setSelected(p)}
+              tabIndex={p.underConstruction ? -1 : 0}
+              role={p.underConstruction ? "presentation" : "button"}
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") setSelected(p);
+                if (!p.underConstruction && (e.key === "Enter" || e.key === " ")) setSelected(p);
               }}
             >
               {(p.thumb || p.image) && (
@@ -261,7 +255,9 @@ export default function Projetos() {
                 <p className={styles.cardDesc}>{p.desc}</p>
               </div>
 
-              <div className={styles.cardHint}>Clique para ver detalhes</div>
+              <div className={styles.cardHint}>
+                {p.underConstruction ? "" : "Clique para ver detalhes"}
+              </div>
             </article>
           ))}
         </div>
