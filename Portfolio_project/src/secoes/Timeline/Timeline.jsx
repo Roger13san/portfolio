@@ -8,7 +8,7 @@ const items = [
     period: "2026 – Atual",
     title: "IT Analyst — PicPay",
     description:
-      "Atuação com qualidade de software em ambiente de produção, trabalhando com testes manuais e automatizados. Desenvolvimento de testes com Cypress e validação de APIs REST, garantindo a confiabilidade das integrações entre serviços. Participação ativa na identificação de bugs e melhoria contínua dos sistemas.",
+      "Atuação com qualidade de software em ambiente de produção, trabalhando com testes manuais e automatizados. Desenvolvimento de testes com Cypress e validação de APIs REST, garantindo a confiabilidade das integrações entre serviços. Participação ativa na identificação de bugs e melhoria contínua dos sistemas. ",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },
