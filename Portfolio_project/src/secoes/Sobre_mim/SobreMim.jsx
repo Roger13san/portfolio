@@ -33,31 +33,29 @@ export default function SobreMim() {
         <h3 className={styles.heading}>Sobre mim</h3>
 
         <p className={styles.text}>
-          Desenvolvedor{" "}
-          <span className={styles.highlight}>Full Stack</span> com foco em{" "}
-          <span className={styles.highlight}>back-end</span>, atuando
-          profissionalmente desde 2024, passando por três cargos em menos de
-          dois anos, do desenvolvimento backend até garantia de qualidade.
+          QA Engineer, atuando profissionalmente desde 2024.
+          Em menos de dois anos, passei por três cargos na{" "}
+          <span className={styles.highlight}>PicPay</span>, de programador junior
+          até analista de qualidade, e hoje atuo exclusivamente como QA.
           <br /><br />
-          Trabalho principalmente com{" "}
+          No lado de{" "}
+          <span className={styles.highlight}>desenvolvimento</span>, trabalho com{" "}
           <span className={styles.bold}>Golang</span> e{" "}
-          <span className={styles.bold}>PHP</span> no desenvolvimento e manutenção
-          de APIs em produção, integração entre serviços e bancos de dados{" "}
+          <span className={styles.bold}>PHP</span> na construção e manutenção de APIs
+          em produção, integração entre serviços e bancos de dados{" "}
           <span className={styles.bold}>SQL</span> e{" "}
-          <span className={styles.bold}>NoSQL</span>. Na área de qualidade, atuo
-          com testes manuais e automatizados usando{" "}
-          <span className={styles.bold}>Cypress</span>, validação de APIs REST e
-          documentação de bugs.
+          <span className={styles.bold}>NoSQL</span>. Já atuei diretamente em sistemas
+          de mensageria, corrigindo falhas que impactavam milhões de usuários.
           <br /><br />
-          Sou formado em{" "}
-          <span className={styles.highlight}>Desenvolvimento de Sistemas</span> pelo
-          Instituto J&F (2023–2025) e atualmente curso{" "}
-          <span className={styles.highlight}>Cibersegurança</span> na Faculdade
-          Impacta Tecnologia, uma área que cada vez mais se conecta com o meu
-          trabalho no dia a dia.
+          No lado de{" "}
+          <span className={styles.highlight}>qualidade</span>, automatizo testes com{" "}
+          <span className={styles.bold}>Cypress</span>, implemento monitoramento
+          contínuo em produção e construo ferramentas internas que facilitam o trabalho
+          de outros devs.
           <br /><br />
           Fora do trabalho, gosto de construir projetos próprios, explorar novas
           tecnologias e entender como as coisas funcionam por baixo dos panos.
+        
         </p>
 
       </div>

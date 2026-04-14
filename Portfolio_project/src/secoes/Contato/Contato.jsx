@@ -1,10 +1,12 @@
 import styles from "./Contato.module.css";
-import { Mail, Linkedin, Github, Phone, MapPin } from "lucide-react";
+import { Mail, Linkedin, MapPin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useTracking } from "../../hooks/useTracking";
 
 export default function Contato() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const { trackEvent } = useTracking();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,11 +35,11 @@ export default function Contato() {
     },
 
     {
-      icon: Phone,
-      label: "WhatsApp",
-      value: "+55 (11) 94865-9917",
-      href: "https://wa.me/5511948659917",
-      color: "#25d366",
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "roger-rodrigues-de-santana",
+      href: "https://www.linkedin.com/in/roger-rodrigues-de-santana-b2a241311/",
+      color: "#0a66c2",
     },
     {
       icon: MapPin,
@@ -84,6 +86,7 @@ export default function Contato() {
                 target="_blank"
                 rel="noreferrer"
                 className={styles.contactLink}
+                onClick={() => trackEvent(`click_contato_${method.label.toLowerCase()}`, { section: "contato" })}
               >
                 {content}
               </a>
@@ -102,6 +105,7 @@ export default function Contato() {
           <a
             href="mailto:roger.rodriguessantana22@gmail.com"
             className={styles.mailButton}
+            onClick={() => trackEvent("click_contato_email_cta", { section: "contato" })}
           >
             Enviar Email
           </a>
