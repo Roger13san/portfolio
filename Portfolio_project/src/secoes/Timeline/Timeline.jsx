@@ -8,7 +8,7 @@ const items = [
     period: "2026 – Atual",
     title: "IT Analyst — PicPay",
     description:
-      "Execução de testes manuais e automatizados para validação de sistemas. Automação de testes com Cypress, testes de APIs REST e integração entre serviços. Identificação e documentação de bugs, colaborando com times de desenvolvimento para melhoria contínua da qualidade do software.",
+      "Atuação com qualidade de software em ambiente de produção, trabalhando com testes manuais e automatizados. Desenvolvimento de testes com Cypress e validação de APIs REST, garantindo a confiabilidade das integrações entre serviços. Participação ativa na identificação de bugs e melhoria contínua dos sistemas.",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },
@@ -17,7 +17,7 @@ const items = [
     period: "2025 – 2026",
     title: "Assistant IT — PicPay",
     description:
-      "Desenvolvimento e manutenção de serviços backend com Golang e PHP. Implementação de novas funcionalidades em sistemas internos, integração com bancos de dados SQL e NoSQL e desenvolvimento de funcionalidades para sistema de mensageria.",
+      "Desenvolvimento backend com Golang e PHP em sistemas internos. Criação de novas funcionalidades, integração com bancos SQL e NoSQL e participação em soluções de mensageria. Experiência prática com sistemas em produção e evolução de aplicações existentes.",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },
@@ -26,7 +26,7 @@ const items = [
     period: "2024 – 2025",
     title: "Junior Programmer — PicPay",
     description:
-      "Desenvolvimento backend com Golang e PHP. Implementação de funcionalidades para sistemas internos e manutenção de aplicações existentes em ambiente de produção.",
+      "Início da trajetória profissional com foco em backend, atuando com Golang e PHP. Desenvolvimento de funcionalidades e manutenção de sistemas em produção, adquirindo base sólida em desenvolvimento e boas práticas.",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },

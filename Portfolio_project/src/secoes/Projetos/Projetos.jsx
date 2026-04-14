@@ -28,7 +28,7 @@ const projetos = [
   },
   {
     title: "🚧 Em obras...",
-    desc: "Novo projeto chegando em breve. Spoiler: vai ter Go, uma API externa de verdade e provavelmente muito café envolvido.",
+    desc: "Novos projetos chegando em breve...",
     stack: ["🔜 Em breve"],
     highlights: [],
     links: { repo: "", demo: "" },
