@@ -78,9 +78,9 @@ export default function Hero() {
             </p>
 
             <p className={styles.desc}>
-              Desenvolvedor especializado em back-end e APIs escaláveis.
+              Backend + QA Engineer focado em APIs escaláveis, testes automatizados e qualidade de software.
               <br />
-              2 anos de experiência profissional em produção.
+              Experiência real em produção desde 2024.
             </p>
 
             <div className={styles.buttons}>
