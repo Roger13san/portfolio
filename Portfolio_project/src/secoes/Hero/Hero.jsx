@@ -1,6 +1,7 @@
 import { Linkedin, Github, FileDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
+import { useTracking } from "../../hooks/useTracking";
 import heroBg from "../../assets/hero-bg.jpg";
 import rogerAvatar from "../../assets/bonito.jpg";
 
@@ -50,6 +51,7 @@ function useTypingEffect(words) {
 
 export default function Hero() {
   const typedRole = useTypingEffect(ROLES);
+  const { trackEvent } = useTracking();
 
   return (
     <section
@@ -89,6 +91,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer"
                 className={`${styles.btn} ${styles.primary}`}
+                onClick={() => trackEvent("click_linkedin", { section: "hero" })}
               >
                 <Linkedin size={22} />
                 LinkedIn
@@ -99,6 +102,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer"
                 className={`${styles.btn} ${styles.secondary}`}
+                onClick={() => trackEvent("click_github", { section: "hero" })}
               >
                 <Github size={22} />
                 GitHub
@@ -108,6 +112,7 @@ export default function Hero() {
                 href="/cv/roger-santana-cv.pdf"
                 download
                 className={`${styles.btn} ${styles.ghost}`}
+                onClick={() => trackEvent("click_download_cv", { section: "hero" })}
               >
                 <FileDown size={22} />
                 Baixar CV

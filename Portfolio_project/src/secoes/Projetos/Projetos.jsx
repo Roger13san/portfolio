@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github, X } from "lucide-react";
 import styles from "./Projetos.module.css";
+import { useTracking } from "../../hooks/useTracking";
 
 import idea_plataform from "../../assets/idea_plataform.jpeg";
 import ecommerce_ui from "../../assets/ecommerce_ui.jpeg";
@@ -40,7 +41,7 @@ function Tag({ children }) {
   return <span className={styles.tag}>{children}</span>;
 }
 
-function Modal({ project, onClose }) {
+function Modal({ project, onClose, trackEvent }) {
   const overlayRef = useRef(null);
   const dialogRef = useRef(null);
   const previousActive = useRef(null);
@@ -157,12 +158,24 @@ function Modal({ project, onClose }) {
           )}
 
           <div className={styles.actions}>
-            <a className={styles.btnPrimary} href={project.links.repo} target="_blank" rel="noreferrer">
+            <a
+              className={styles.btnPrimary}
+              href={project.links.repo}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackEvent("click_projeto_repo", { projeto: project.title })}
+            >
               <Github size={16} /> Repo
             </a>
 
             {project.links.demo ? (
-              <a className={styles.btnGhost} href={project.links.demo} target="_blank" rel="noreferrer">
+              <a
+                className={styles.btnGhost}
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackEvent("click_projeto_demo", { projeto: project.title })}
+              >
                 <ExternalLink size={16} /> Demo
               </a>
             ) : (
@@ -179,6 +192,7 @@ function Modal({ project, onClose }) {
 
 export default function Projetos() {
   const [selected, setSelected] = useState(null);
+  const { trackEvent } = useTracking();
 
   // ✅ mesma lógica do SobreMim
   const sectionRef = useRef(null);
@@ -215,6 +229,7 @@ export default function Projetos() {
             href="https://github.com/Roger13san"
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackEvent("click_github_all_projects", { section: "projetos" })}
           >
             Ver tudo no GitHub →
           </a>
@@ -228,11 +243,19 @@ export default function Projetos() {
                 p.featured ? styles.featured : ""
               } ${p.underConstruction ? styles.underConstruction : ""}`}
               style={{ transitionDelay: `${i * 120}ms` }}
-              onClick={() => !p.underConstruction && setSelected(p)}
+              onClick={() => {
+                if (!p.underConstruction) {
+                  trackEvent("click_projeto_abrir", { projeto: p.title });
+                  setSelected(p);
+                }
+              }}
               tabIndex={p.underConstruction ? -1 : 0}
               role={p.underConstruction ? "presentation" : "button"}
               onKeyDown={(e) => {
-                if (!p.underConstruction && (e.key === "Enter" || e.key === " ")) setSelected(p);
+                if (!p.underConstruction && (e.key === "Enter" || e.key === " ")) {
+                  trackEvent("click_projeto_abrir", { projeto: p.title });
+                  setSelected(p);
+                }
               }}
             >
               {(p.thumb || p.image) && (
@@ -262,7 +285,7 @@ export default function Projetos() {
           ))}
         </div>
 
-        {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
+        {selected && <Modal project={selected} onClose={() => setSelected(null)} trackEvent={trackEvent} />}
       </div>
     </section>
   );

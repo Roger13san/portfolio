@@ -8,7 +8,7 @@ const items = [
     period: "2026 – Atual",
     title: "IT Analyst — PicPay",
     description:
-      "Atuação com qualidade de software em ambiente de produção, trabalhando com testes manuais e automatizados. Desenvolvimento de testes com Cypress e validação de APIs REST, garantindo a confiabilidade das integrações entre serviços. Participação ativa na identificação de bugs e melhoria contínua dos sistemas. ",
+      "Automação de testes cobrindo toda a vertical de seguros da PicPay, com execução a cada 30 minutos e notificação automática dos responsáveis em caso de falha em produção. Implementação de testes sintéticos no banco de dados para validar o fluxo completo de contratação. Criação de API interna de geração de massa de teste,com saldo, seguros contratados e acesso ao app, adotada pelo time como ferramenta padrão.",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },
@@ -17,7 +17,7 @@ const items = [
     period: "2025 – 2026",
     title: "Assistant IT — PicPay",
     description:
-      "Desenvolvimento backend com Golang e PHP em sistemas internos. Criação de novas funcionalidades, integração com bancos SQL e NoSQL e participação em soluções de mensageria. Experiência prática com sistemas em produção e evolução de aplicações existentes.",
+      "Desenvolvimento backend com Golang e PHP em sistemas internos de produção. Identificação e correção de falha crítica de duplicidade e não-envio na mensageria, impactando cerca de 30% da base de usuários, milhões de contas. Integração com bancos SQL e NoSQL e atuação em soluções de mensageria.",
     dot: <Briefcase className={styles.icon} />,
     type: "profissional",
   },
